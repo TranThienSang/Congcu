@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="ajax">
+
+</div>
+<input type="button" onclick="fetch_api()" value="click ">
+<script>
+    async function fetch_api() {
+        var div = document.getElementById('ajax');
+        let a = await fetch('https://hipsum.co/api/?type=hipster-centric&paras=3')
+            .then(
+                function (response) {
+                    if (response.status !== 200) {
+                        console.log('Lỗi, mã lỗi ' + response.status);
+                        return;
+                    }
+                    // parse response data
+                    response.json().then(data => {
+                        console.log(data);
+                        for (let i = 0; i < 3; i++) {
+                            div.innerHTML += `</br>${data[i]}</br></br>`;
+                        }
+                    })
+                }
+            )
+            .catch(err => {
+                console.log('Error :-S', err)
+            });
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>
