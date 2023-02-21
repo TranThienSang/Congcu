@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="dimensions"></p>
+
+<script>
+  function updateDimensions() {
+    document.getElementById("dimensions").innerHTML =
+      "Chiều rộng: " + window.innerWidth + "px<br>" +
+      "Chiều cao: " + window.innerHeight + "px";
+  }
+
+  updateDimensions();
+  window.addEventListener("resize", updateDimensions);
+</script>
+</body>
+</html>
